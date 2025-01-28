@@ -4,7 +4,6 @@ import csv
 
 def convert():
     excel_file = pd.read_excel("test.xlsx")
-    excel_file.to_csv("test.csv", index=None, header=True)
     clear_csv("test.csv")
    
 
@@ -23,6 +22,8 @@ def clear_csv(filename):
    # rename columns
    cf = cf.rename(columns={cf.columns[0]: 'date', cf.columns[1]: 'payee', cf.columns[2]: 'memo', cf.columns[3]: 'outflow', cf.columns[4]: 'inflow'})
    print(cf)
+
+   cf.to_csv("test.csv", index=None, header=True)
 
 if __name__ == '__main__':
     convert()
